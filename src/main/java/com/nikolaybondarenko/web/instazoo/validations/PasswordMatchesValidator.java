@@ -7,6 +7,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 public class PasswordMatchesValidator implements ConstraintValidator<PasswordMatches, Object> {
+
     @Override
     public void initialize(PasswordMatches constraintAnnotation) {
 
@@ -15,6 +16,6 @@ public class PasswordMatchesValidator implements ConstraintValidator<PasswordMat
     @Override
     public boolean isValid(Object obj, ConstraintValidatorContext constraintValidatorContext) {
        SignupRequest userSignupRequest = (SignupRequest) obj;
-       return userSignupRequest.getPassword().equals(userSignupRequest.getConfirmPassword());
+       return (userSignupRequest.getPassword().equals(userSignupRequest.getConfirmPassword()));
     }
 }
